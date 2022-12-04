@@ -1,0 +1,18 @@
+{
+  "name": "OctocatRun",
+  "version": "1.0",
+  "manifest_version": 3,
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*"],
+      "matches": ["https://github.com/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "js": ["assets/${jsファイル名に書き換える}"],
+      "matches": ["https://github.com/*"]
+    }
+  ],
+  "action": {}
+}
