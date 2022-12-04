@@ -12,25 +12,13 @@ class TitleScene extends Phaser.Scene {
   }
   init() {}
   preload() {
-    // octocatTexture = this.textures.addBase64("octocat", octocat);
-    // console.log(this.textures);
-
-    // this.textures.addBase64("bg", bg);
-    // this.textures.addBase64("bug", bug);
-    // this.load.image("octocat", octocat);
     this.load.image("octocat", imagePath.octocat);
     this.load.image("bg", imagePath.bg);
     this.load.image("bug", imagePath.bug);
-    // this.load.image("octocat", "./images/octocat.png");
-    // this.load.image("bg", "./images/bg.png");
-    // this.load.image("bug", "./images/bug.png");
   }
 
   create() {
-    // this.physics.add.sprite(canvasWidth / 2, canvasHeight / 2, "cat");
     this.add.image(canvasWidth / 2, canvasHeight / 2, "bg");
-
-    console.log(this.textures.list);
 
     player = this.physics.add.sprite(
       canvasWidth / 2,
@@ -87,11 +75,7 @@ class PlayScene extends Phaser.Scene {
     this.isGameOver = false;
   }
   init() {}
-  preload() {
-    // this.load.image("octocat", "./images/octocat.png");
-    // this.load.image("bg", "./images/bg.png");
-    // this.load.image("bug", "./images/bug.png");
-  }
+  preload() {}
 
   create() {
     this.add.image(canvasWidth / 2, canvasHeight / 2, "bg");
@@ -149,8 +133,6 @@ class PlayScene extends Phaser.Scene {
   }
   update() {
     bugGroup.setVelocityY(200);
-    // console.log(bugGroup);
-
     bugGroup.children.entries.forEach(b => {
       //@ts-ignore
       if (b.y > canvasHeight) {
@@ -186,19 +168,19 @@ class PlayScene extends Phaser.Scene {
 const config: Phaser.Types.Core.GameConfig = {
   parent: "error_500",
   type: Phaser.AUTO,
-  width: canvasWidth, //キャンバスの幅
-  height: canvasHeight, //キャンバスの高さ
+  width: canvasWidth,
+  height: canvasHeight,
   backgroundColor: "#4488aa",
-  scene: [TitleScene, PlayScene], //この2つのシーンクラスは別途用意する
+  scene: [TitleScene, PlayScene],
   fps: {
-    target: 24, // フレームレート
+    target: 24,
     forceSetTimeOut: true,
   },
   physics: {
     default: "arcade",
     arcade: {
-      debug: false, // スプライトに緑の枠を表示します
-      gravity: { y: 0 }, // 重力の方向とその強さ
+      debug: false,
+      gravity: { y: 0 },
     },
   },
 };
